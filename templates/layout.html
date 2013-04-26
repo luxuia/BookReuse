@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8">
+<title>Book Reuse</title>
+<link rel=stylesheet type=text/css 
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div class="intro">
+                <h1><a href="/">Book Reuse</a></h1>
+                <div class="description">We Store old book from your higher age classmates, Thanks them
+                </div>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="/">Main</a></li>
+                    <li><a href="/ranklist">ranklist</a></li>
+                </ul>
+                <div class="login">
+                    {% if not session.logged_in %}
+                        <a href="{{ url_for('login') }}">log in</a>
+                    {% else %}
+                    <span class="name">{{ session.username }}</span>
+                        <a href="{{ url_for('logout') }}">log out</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% block body %}{% endblock%}
+    </div>
+    <div id="footer">
+        <p>&copy;2013 luxuia</p>     
+    </div>
+</body>
+</html>

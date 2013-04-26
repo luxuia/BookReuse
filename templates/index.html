@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div id="search-form"> 
+        <form method="get" action="{{ url_for('search_book')}}">
+            <label class="hidden" for="s">
+                <input type="text" value="" size="40" name="s" id="s" />
+                <input type="submit" class="f-submit" value="书籍搜索" />
+            </label>
+        </form>
+    </div>
+    <h3 class="title">New update</h3>
+    <div id="home-book-list">
+        <ul>
+        {% for book in homebook %}
+        <li><a href="{{book.url}}">
+            <img src="{{book.src}}" alt="{{book.name}}"/>
+            </a>
+        </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
