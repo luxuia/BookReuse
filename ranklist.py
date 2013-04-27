@@ -18,7 +18,7 @@ for index in xrange(0,1800, 20):
             rating = float(str(bookinfo('span.rating_nums').text()))
         else:
             rating = 1
-        #num = int( str(bookinfo('span.pl').text()) )
+        num = int( str(bookinfo('span.pl').text()) )
         num = 1000
         score = rating*math.log(num/100.0)
         scoreTable.append(dict(score=score, name=name))
